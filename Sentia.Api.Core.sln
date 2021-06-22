@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sentia.Api.Core", "Sentia.Api.Core\Sentia.Api.Core.csproj", "{4D669E6E-1496-4D64-B1FD-90A1667BF8EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D669E6E-1496-4D64-B1FD-90A1667BF8EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D669E6E-1496-4D64-B1FD-90A1667BF8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D669E6E-1496-4D64-B1FD-90A1667BF8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D669E6E-1496-4D64-B1FD-90A1667BF8EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A45356DF-9F0E-44D1-8538-E5EAE06ABFA9}
+	EndGlobalSection
+EndGlobal
