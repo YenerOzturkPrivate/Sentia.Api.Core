@@ -18,8 +18,10 @@ namespace Sentia.Api.Core.Behaviours
 
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
+            var context = new FluentValidation.ValidationContext<TRequest>(request);
+
             var failures = _validators
-                .Select(v => v.Validate((IValidationContext)request))
+                .Select(v => v.Validate(context))
                 .SelectMany(result => result.Errors)
                 .Where(f => f != null)
                 .ToList();

@@ -27,7 +27,7 @@ namespace Sentia.Api.Core.Interfaces
         int AppVersionCode { get; }
     }
 
-    internal class SentiaAppContext
+    public class SentiaAppContext:ISentiaAppContext
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
 
@@ -57,6 +57,8 @@ namespace Sentia.Api.Core.Interfaces
         public bool HasAuthentication => !string.IsNullOrEmpty(AuthenticationType);
         public string UserId => GetClaim(ClaimTypes.UserData);
         public string UserName => GetClaim(ClaimTypes.Name);
+
+        public string AppBuildVersion => "V1";
 
         private string GetClaim(string claimType)
         {
