@@ -118,7 +118,7 @@ namespace Sentia.Api.Core.Middlewares
             var request = context.Request;
             var apiKey = string.Empty;
             var authenticationType = string.Empty;
-            var userId = string.Empty;
+            var userId = int.MinValue;
             var clientName = string.Empty;
 
             try

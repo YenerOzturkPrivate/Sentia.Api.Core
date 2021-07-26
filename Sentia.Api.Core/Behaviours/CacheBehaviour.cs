@@ -48,7 +48,7 @@ namespace Sentia.Api.Core.Behaviours
 
         private async Task<TResponse> GetFromMemoryCache(TRequest request, ICacheable cacheable, RequestHandlerDelegate<TResponse> next)
         {
-            var cacheKey = request.GetType().Name + DateTime.Now.ToString();
+            var cacheKey = cacheable.CacheSettings.Key[0];//request.GetType().Name + DateTime.Now.ToString();
 
             var isExist = _cache.TryGetValue(cacheKey, out TResponse response);
             if (isExist)

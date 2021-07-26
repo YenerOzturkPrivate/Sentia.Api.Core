@@ -21,13 +21,13 @@ namespace Sentia.Api.Core.Interfaces
         string ClientIp { get; }
         string Culture { get; }
         bool HasAuthentication { get; }
-        string UserId { get; }
+        int UserId { get; }
         string UserName { get; }
         string AppBuildVersion { get; }
         int AppVersionCode { get; }
     }
 
-    public class SentiaAppContext:ISentiaAppContext
+    public class SentiaAppContext : ISentiaAppContext
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
 
@@ -55,7 +55,7 @@ namespace Sentia.Api.Core.Interfaces
         public string ClientIp => GetClientIp();
         public string Culture => GetRequestHeader("S-Culture");
         public bool HasAuthentication => !string.IsNullOrEmpty(AuthenticationType);
-        public string UserId => GetClaim(ClaimTypes.UserData);
+        public int UserId => Convert.ToInt32(GetClaim(ClaimTypes.UserData));
         public string UserName => GetClaim(ClaimTypes.Name);
 
         public string AppBuildVersion => "V1";
