@@ -25,6 +25,7 @@ namespace Sentia.Api.Core.Interfaces
         string UserName { get; }
         string AppBuildVersion { get; }
         int AppVersionCode { get; }
+        string ClientSubscriptionId { get; }
     }
 
     public class SentiaAppContext : ISentiaAppContext
@@ -46,6 +47,15 @@ namespace Sentia.Api.Core.Interfaces
             }
         }
 
+        public string ClientSubscriptionId
+        {
+            get
+            {
+                var versionCode = GetRequestHeader("ClientSubscriptionId", false);
+                return versionCode;
+            }
+        }
+
         public string AuthenticationType => GetClaim(ClaimTypes.Authentication);
         public bool AuthenticationTypeIsAnonymous => AuthenticationType == "Anonymous";
         public bool AuthenticationTypeIsLogin => AuthenticationType == "Login";
@@ -57,7 +67,6 @@ namespace Sentia.Api.Core.Interfaces
         public bool HasAuthentication => !string.IsNullOrEmpty(AuthenticationType);
         public int UserId => Convert.ToInt32(GetClaim(ClaimTypes.UserData));
         public string UserName => GetClaim(ClaimTypes.Name);
-
         public string AppBuildVersion => "V1";
 
         private string GetClaim(string claimType)
