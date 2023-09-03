@@ -26,6 +26,7 @@ namespace Sentia.Api.Core.Interfaces
         string AppBuildVersion { get; }
         int AppVersionCode { get; }
         string ClientSubscriptionId { get; }
+        string CommandAuthKey { get; }
     }
 
     public class SentiaAppContext : ISentiaAppContext
@@ -52,6 +53,15 @@ namespace Sentia.Api.Core.Interfaces
             get
             {
                 var versionCode = GetRequestHeader("ClientSubscriptionId", false);
+                return versionCode;
+            }
+        }
+
+        public string CommandAuthKey
+        {
+            get
+            {
+                var versionCode = GetRequestHeader("CommandAuthKey", false);
                 return versionCode;
             }
         }
